@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="1. 在左/右上角实现 “fork me on github”效果图方法在GitHub Ribbons或GitHub Corners中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&amp;lt;div class=”headband”&amp;gt;&amp;lt;/div&amp;gt;下面)，并把href改为你的github地址  hexo的next主题个性化配置教程">
+<meta name="description" content="本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-NexT theme customization">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/hexo-next-theme-customization/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="1. 在左/右上角实现 “fork me on github”效果图方法在GitHub Ribbons或GitHub Corners中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&amp;lt;div class=”headband”&amp;gt;&amp;lt;/div&amp;gt;下面)，并把href改为你的github地址  hexo的next主题个性化配置教程">
+<meta property="og:description" content="本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/images/fork-me-on-github.png">
-<meta property="og:updated_time" content="2019-03-30T09:07:38.118Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/hexo-next-theme-customization/fork-me-on-github.png">
+<meta property="og:updated_time" content="2019-05-16T13:18:07.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT theme customization">
-<meta name="twitter:description" content="1. 在左/右上角实现 “fork me on github”效果图方法在GitHub Ribbons或GitHub Corners中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&amp;lt;div class=”headband”&amp;gt;&amp;lt;/div&amp;gt;下面)，并把href改为你的github地址  hexo的next主题个性化配置教程">
-<meta name="twitter:image" content="http://yoursite.com/images/fork-me-on-github.png">
+<meta name="twitter:description" content="本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/30/hexo-next-theme-customization/fork-me-on-github.png">
 
 
 
@@ -202,12 +202,42 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
           </a>
         </li>
       
@@ -273,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T16:40:26+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T00:00:00+08:00">
                 2019-03-30
               </time>
             
@@ -289,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-03-30T17:07:38+08:00">
-                2019-03-30
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-16T21:18:07+08:00">
+                2019-05-16
               </time>
             
           </span>
@@ -317,7 +347,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  76
+                  101
                 </span>
               
 
@@ -354,9 +384,11 @@
       
 
       
-        <a id="more"></a>
-<h2 id="1-在左-右上角实现-“fork-me-on-github”"><a href="#1-在左-右上角实现-“fork-me-on-github”" class="headerlink" title="1. 在左/右上角实现 “fork me on github”"></a>1. 在左/右上角实现 “fork me on github”</h2><p><strong>效果图</strong><br><img src="/images/fork-me-on-github.png" alt="fork-me-on-github"><br><strong>方法</strong><br>在<a href="https://github.blog/2008-12-19-github-ribbons/" target="_blank" rel="noopener">GitHub Ribbons</a>或<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">GitHub Corners</a>中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&lt;div class=”headband”>&lt;/div>下面)，并把href改为你的github地址</p>
-<ul>
+        <p>本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。</p>
+<a id="more"></a>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="/2019/03/30/hexo-next-theme-customization/fork-me-on-github.png" title="fork-me-on-github">
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在<a href="https://github.blog/2008-12-19-github-ribbons/" target="_blank" rel="noopener">GitHub Ribbons</a>或<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">GitHub Corners</a>中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&lt;div class=”headband”>&lt;/div>下面)，并把href改为你的github地址</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">hexo的next主题个性化配置教程</a></li>
 </ul>
 
@@ -407,15 +439,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/word2vec/" rel="next" title="word2vec">
-                <i class="fa fa-chevron-left"></i> word2vec
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/16/compute-iou-for-object-detection/" rel="prev" title="2D目标检测中的IoU评估指标">
+                2D目标检测中的IoU评估指标 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -547,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在左-右上角实现-“fork-me-on-github”"><span class="nav-number">1.</span> <span class="nav-text">1. 在左/右上角实现 “fork me on github”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -581,7 +613,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">230</span>
+    <span title="Site words total count">1.1k</span>
   
 </div>
 

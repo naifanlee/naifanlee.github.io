@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
+<meta name="description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="word2vec">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/word2vec/index.html">
+<meta property="og:title" content="2D目标检测中的IoU评估指标">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
+<meta property="og:description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-29T10:59:23.520Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg">
+<meta property="og:updated_time" content="2019-05-16T13:13:15.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="word2vec">
-<meta name="twitter:description" content="Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;">
+<meta name="twitter:title" content="2D目标检测中的IoU评估指标">
+<meta name="twitter:description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/word2vec/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/">
 
 
 
 
 
-  <title>word2vec | Y&L</title>
+  <title>2D目标检测中的IoU评估指标 | Y&L</title>
   
 
 
@@ -200,12 +202,42 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
           </a>
         </li>
       
@@ -242,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/word2vec/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lee">
@@ -259,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">word2vec</h1>
+          <h1 class="post-title" itemprop="name headline">2D目标检测中的IoU评估指标</h1>
         
 
         <div class="post-meta">
@@ -271,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T18:59:23+08:00">
-                2019-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T21:04:31+08:00">
+                2019-05-16
               </time>
             
 
@@ -287,8 +319,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-03-29T18:59:23+08:00">
-                2019-03-29
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-16T21:13:15+08:00">
+                2019-05-16
               </time>
             
           </span>
@@ -315,7 +347,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  81
+                  974
                 </span>
               
 
@@ -331,7 +363,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -352,13 +384,31 @@
       
 
       
-        <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. In Proceedings of Workshop at ICLR, 2013.</li>
-<li>Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. In Proceedings of NIPS, 2013.</li>
-<li>Tomas Mikolov, Wen-tau Yih, and Geoffrey Zweig. Linguistic Regularities in Continuous Space Word Representations. In Proceedings of NAACL HLT, 2013.</li>
-</ul>
+        <p>本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。<br><a id="more"></a></p>
+<h2 id="IoU是什么？"><a href="#IoU是什么？" class="headerlink" title="IoU是什么？"></a>IoU是什么？</h2><p>IoU, 即 Intersection over Union，又称“交并比”，是用于评估目标检测算法准确率的常用指标之一。在2D目标检测中，边界框(bounding box)是垂直于xy坐标系的一个个矩形【用矩形的左下角点坐标(x_min, y_min)和右上角点坐标(x_max, y_max)定义一个边界框】，每个矩形中是图像中的目标。我们希望算法预测的一个个矩形边界框既能框住目标，又能使框尽可能的小。任何可以预测边界框的算法都可以使用IoU指标评估算法性能。要计算IoU，需要：</p>
+<ol>
+<li>真实的边界框(比如，数据集上人工标注的边界框，指定图像中目标的位置)</li>
+<li>模型预测的边界框</li>
+</ol>
+<p>只要有了这两个边界框，就可以计算IoU。</p>
+<img src="/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg" title="图1：bounding-box-example">
+<p>如图所示，该图是检测一个图像中的停车标志的例子。其中，红线表示算法预测的边界框，绿线表示真实(比如，人工标注)的边界框。<br>$$IoU=\frac{\text{预测的边界框和真实的边界框的交集}}{\text{预测的边界框和真实的边界框的并集}}$$<br>在有监督算法中，模型训练需要三个数据集：</p>
+<ol>
+<li>训练集：用于训练模型(这里指的是目标检测算法)的数据集</li>
+<li>验证集：用于调整模型超参数的数据集</li>
+<li>测试集：模型训练好后，用于测试模型效果的数据集</li>
+</ol>
+<p>无论是训练集、验证集还是测试集中，在目标检测算法中都包含：</p>
+<ol>
+<li>图像本身</li>
+<li>图像中一个个框住目标的边界框[(x_min, y_min), (x_max, y_max)]，且每个边界框都指定了所包含目标的的类别(class)</li>
+</ol>
+<p>一般情况下，我们认为IoU大于0.5的是一个好的预测。当然，在使用中，你也可以设置更严格的阈值。</p>
+<h2 id="为什么使用IoU评估目标检测算法？"><a href="#为什么使用IoU评估目标检测算法？" class="headerlink" title="为什么使用IoU评估目标检测算法？"></a>为什么使用IoU评估目标检测算法？</h2><p>在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。<br>但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。</p>
+<h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_iou</span><span class="params">(pred_bb, gt_bb)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the IoU between the predicted bounding box and the ground-truth bounding box.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)]</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    :param pred_bb: predicted bounding box</span></span><br><span class="line"><span class="string">    :param gt_bb: ground-truth bounding box</span></span><br><span class="line"><span class="string">    :return: iou, type: float</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># the area of overlap</span></span><br><span class="line">    x_min = max(pred_bb[<span class="number">0</span>][<span class="number">0</span>], gt_bb[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># lower_left_x_overlap</span></span><br><span class="line">    y_min = max(pred_bb[<span class="number">0</span>][<span class="number">1</span>], gt_bb[<span class="number">0</span>][<span class="number">1</span>]) <span class="comment"># lower_left_y_overlap</span></span><br><span class="line">    x_max = min(pred_bb[<span class="number">1</span>][<span class="number">0</span>], gt_bb[<span class="number">1</span>][<span class="number">0</span>]) <span class="comment"># upper_left_x_overlap</span></span><br><span class="line">    y_max = min(pred_bb[<span class="number">1</span>][<span class="number">1</span>], gt_bb[<span class="number">1</span>][<span class="number">1</span>]) <span class="comment"># upper_left_y_overlap</span></span><br><span class="line">    <span class="comment"># determine if the predicted bounding box and the ground-truth bounding box overlap</span></span><br><span class="line">    area_overlap = max(<span class="number">0</span>, x_max - x_min) * max(<span class="number">0</span>, y_max - y_min)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># the area of predicted bounding box</span></span><br><span class="line">    area_pred = (pred_bb[<span class="number">1</span>][<span class="number">0</span>] - pred_bb[<span class="number">0</span>][<span class="number">0</span>]) * (pred_bb[<span class="number">1</span>][<span class="number">1</span>] - pred_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of ground-truth bounding box</span></span><br><span class="line">    area_gt = (gt_bb[<span class="number">1</span>][<span class="number">0</span>] - gt_bb[<span class="number">0</span>][<span class="number">0</span>]) * (gt_bb[<span class="number">1</span>][<span class="number">1</span>] - gt_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of union</span></span><br><span class="line">    area_union = area_gt + area_pred - area_overlap</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># iou</span></span><br><span class="line">    iou = round(float(area_overlap) / area_union, <span class="number">6</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> iou</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/" target="_blank">IoU for object detection</a></li>
+</ol>
 
       
     </div>
@@ -407,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/03/30/hexo-next-theme-customization/" rel="next" title="Hexo-NexT theme customization">
+                <i class="fa fa-chevron-left"></i> Hexo-NexT theme customization
               </a>
             
           </div>
@@ -416,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/30/hexo-next-theme-customization/" rel="prev" title="Hexo-NexT theme customization">
-                Hexo-NexT theme customization <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -551,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoU是什么？"><span class="nav-number">1.</span> <span class="nav-text">IoU是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用IoU评估目标检测算法？"><span class="nav-number">2.</span> <span class="nav-text">为什么使用IoU评估目标检测算法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python实现"><span class="nav-number">3.</span> <span class="nav-text">Python实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -585,7 +631,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">230</span>
+    <span title="Site words total count">1.1k</span>
   
 </div>
 
