@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[2D目标检测中的评价指标]]></title>
+    <url>%2F2019%2F05%2F16%2Fevaluation-for-object-detection%2F</url>
+    <content type="text"><![CDATA[本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。 1. IoU首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。 1.1 IoU是什么？IoU, 即 Intersection over Union，又称“交并比”，是用于评估目标检测算法准确率的常用指标之一。在2D目标检测中，边界框(bounding box)是垂直于xy坐标系的一个个矩形【用矩形的左下角点坐标(x_min, y_min)和右上角点坐标(x_max, y_max)定义一个边界框】，每个矩形中是图像中的目标。我们希望算法预测的一个个矩形边界框既能框住目标，又能使框尽可能的小。任何可以预测边界框的算法都可以使用IoU指标评估算法性能。要计算IoU，需要： 真实的边界框(比如，数据集上人工标注的边界框，指定图像中目标的位置) 模型预测的边界框 只要有了这两个边界框，就可以计算IoU。 如图所示，该图是检测一个图像中的停车标志的例子。其中，红线表示算法预测的边界框，绿线表示真实(比如，人工标注)的边界框。$$IoU=\frac{\text{预测的边界框和真实的边界框的交集}}{\text{预测的边界框和真实的边界框的并集}}$$在有监督算法中，模型训练需要三个数据集： 训练集：用于训练模型(这里指的是目标检测算法)的数据集 验证集：用于调整模型超参数的数据集 测试集：模型训练好后，用于测试模型效果的数据集 无论是训练集、验证集还是测试集中，在目标检测算法中都包含： 图像本身 图像中一个个框住目标的边界框[(x_min, y_min), (x_max, y_max)]，且每个边界框都指定了所包含目标的的类别(class) 一般情况下，我们认为IoU大于0.5的是一个好的预测。当然，在使用中，你也可以设置更严格的阈值。 1.2 为什么使用IoU评估目标检测算法？在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。 1.3 Python实现123456789101112131415161718192021222324252627282930def compute_iou(pred_bb, gt_bb): """Compute the IoU between the predicted bounding box and the ground-truth bounding box. bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)] :param pred_bb: predicted bounding box :param gt_bb: ground-truth bounding box :return: iou, type: float """ # the area of overlap x_min = max(pred_bb[0][0], gt_bb[0][0]) # lower_left_x_overlap y_min = max(pred_bb[0][1], gt_bb[0][1]) # lower_left_y_overlap x_max = min(pred_bb[1][0], gt_bb[1][0]) # upper_left_x_overlap y_max = min(pred_bb[1][1], gt_bb[1][1]) # upper_left_y_overlap # determine if the predicted bounding box and the ground-truth bounding box overlap area_overlap = max(0, x_max - x_min) * max(0, y_max - y_min) # the area of predicted bounding box area_pred = (pred_bb[1][0] - pred_bb[0][0]) * (pred_bb[1][1] - pred_bb[0][1]) # the area of ground-truth bounding box area_gt = (gt_bb[1][0] - gt_bb[0][0]) * (gt_bb[1][1] - gt_bb[0][1]) # the area of union area_union = area_gt + area_pred - area_overlap # iou iou = round(float(area_overlap) / area_union, 6) return iou 2. mAP3. FPSFPS，即 Frame Per Second（每秒处理帧数），是目标检测算法中评估算法处理速度的一个性能指标。在目标检测任务中，除了检测准确率以外，也尤其关注算法速度性能。只有算法速度够快，才能实现实时检测。当然，要对比不同算法速度性能，必须在相同硬件上对比测试。 Reference IoU for object detection]]></content>
+      <categories>
+        <category>Deep Learning</category>
+        <category>Object Detection</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+        <tag>Object Detection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-NexT theme customization]]></title>
+    <url>%2F2019%2F03%2F30%2Fhexo-next-theme-customization%2F</url>
+    <content type="text"><![CDATA[本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。 效果图 方法在GitHub Ribbons或GitHub Corners中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&lt;div class=”headband”>&lt;/div>下面)，并把href改为你的github地址 Reference hexo的next主题个性化配置教程]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
+</search>
