@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Deep Learning,Object Detection,">
 
 
 
@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
+<meta name="description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
+<meta name="keywords" content="Deep Learning,Object Detection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2D目标检测中的IoU评估指标">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/index.html">
+<meta property="og:title" content="2D目标检测中的评价指标">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/evaluation-for-object-detection/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
+<meta property="og:description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg">
-<meta property="og:updated_time" content="2019-05-16T13:13:15.791Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/16/evaluation-for-object-detection/20190516-bounding-box-example.jpg">
+<meta property="og:updated_time" content="2019-05-17T03:35:22.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2D目标检测中的IoU评估指标">
-<meta name="twitter:description" content="本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg">
+<meta name="twitter:title" content="2D目标检测中的评价指标">
+<meta name="twitter:description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/16/evaluation-for-object-detection/20190516-bounding-box-example.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/evaluation-for-object-detection/">
 
 
 
 
 
-  <title>2D目标检测中的IoU评估指标 | Y&L</title>
+  <title>2D目标检测中的评价指标 | Y&L</title>
   
 
 
@@ -231,16 +232,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
-            
-            Sitemap
-          </a>
-        </li>
-      
 
       
     </ul>
@@ -274,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/compute-iou-for-object-detection/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/evaluation-for-object-detection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lee">
@@ -291,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2D目标检测中的IoU评估指标</h1>
+          <h1 class="post-title" itemprop="name headline">2D目标检测中的评价指标</h1>
         
 
         <div class="post-meta">
@@ -319,12 +310,45 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-16T21:13:15+08:00">
-                2019-05-16
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-17T11:35:22+08:00">
+                2019-05-17
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/Object-Detection/" itemprop="url" rel="index">
+                    <span itemprop="name">Object Detection</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -347,7 +371,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  974
+                  1.1k
                 </span>
               
 
@@ -363,7 +387,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  4
                 </span>
               
             </div>
@@ -384,14 +408,15 @@
       
 
       
-        <p>本文首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。<br><a id="more"></a></p>
-<h2 id="IoU是什么？"><a href="#IoU是什么？" class="headerlink" title="IoU是什么？"></a>IoU是什么？</h2><p>IoU, 即 Intersection over Union，又称“交并比”，是用于评估目标检测算法准确率的常用指标之一。在2D目标检测中，边界框(bounding box)是垂直于xy坐标系的一个个矩形【用矩形的左下角点坐标(x_min, y_min)和右上角点坐标(x_max, y_max)定义一个边界框】，每个矩形中是图像中的目标。我们希望算法预测的一个个矩形边界框既能框住目标，又能使框尽可能的小。任何可以预测边界框的算法都可以使用IoU指标评估算法性能。要计算IoU，需要：</p>
+        <p>本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。<br><a id="more"></a></p>
+<h2 id="1-IoU"><a href="#1-IoU" class="headerlink" title="1. IoU"></a>1. IoU</h2><p>首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。</p>
+<h3 id="1-1-IoU是什么？"><a href="#1-1-IoU是什么？" class="headerlink" title="1.1 IoU是什么？"></a>1.1 IoU是什么？</h3><p>IoU, 即 Intersection over Union，又称“交并比”，是用于评估目标检测算法准确率的常用指标之一。在2D目标检测中，边界框(bounding box)是垂直于xy坐标系的一个个矩形【用矩形的左下角点坐标(x_min, y_min)和右上角点坐标(x_max, y_max)定义一个边界框】，每个矩形中是图像中的目标。我们希望算法预测的一个个矩形边界框既能框住目标，又能使框尽可能的小。任何可以预测边界框的算法都可以使用IoU指标评估算法性能。要计算IoU，需要：</p>
 <ol>
 <li>真实的边界框(比如，数据集上人工标注的边界框，指定图像中目标的位置)</li>
 <li>模型预测的边界框</li>
 </ol>
 <p>只要有了这两个边界框，就可以计算IoU。</p>
-<img src="/2019/05/16/compute-iou-for-object-detection/20190516-bounding-box-example.jpg" title="图1：bounding-box-example">
+<img src="/2019/05/16/evaluation-for-object-detection/20190516-bounding-box-example.jpg" title="图1：bounding-box-example">
 <p>如图所示，该图是检测一个图像中的停车标志的例子。其中，红线表示算法预测的边界框，绿线表示真实(比如，人工标注)的边界框。<br>$$IoU=\frac{\text{预测的边界框和真实的边界框的交集}}{\text{预测的边界框和真实的边界框的并集}}$$<br>在有监督算法中，模型训练需要三个数据集：</p>
 <ol>
 <li>训练集：用于训练模型(这里指的是目标检测算法)的数据集</li>
@@ -404,8 +429,9 @@
 <li>图像中一个个框住目标的边界框[(x_min, y_min), (x_max, y_max)]，且每个边界框都指定了所包含目标的的类别(class)</li>
 </ol>
 <p>一般情况下，我们认为IoU大于0.5的是一个好的预测。当然，在使用中，你也可以设置更严格的阈值。</p>
-<h2 id="为什么使用IoU评估目标检测算法？"><a href="#为什么使用IoU评估目标检测算法？" class="headerlink" title="为什么使用IoU评估目标检测算法？"></a>为什么使用IoU评估目标检测算法？</h2><p>在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。<br>但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。</p>
-<h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_iou</span><span class="params">(pred_bb, gt_bb)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the IoU between the predicted bounding box and the ground-truth bounding box.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)]</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    :param pred_bb: predicted bounding box</span></span><br><span class="line"><span class="string">    :param gt_bb: ground-truth bounding box</span></span><br><span class="line"><span class="string">    :return: iou, type: float</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># the area of overlap</span></span><br><span class="line">    x_min = max(pred_bb[<span class="number">0</span>][<span class="number">0</span>], gt_bb[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># lower_left_x_overlap</span></span><br><span class="line">    y_min = max(pred_bb[<span class="number">0</span>][<span class="number">1</span>], gt_bb[<span class="number">0</span>][<span class="number">1</span>]) <span class="comment"># lower_left_y_overlap</span></span><br><span class="line">    x_max = min(pred_bb[<span class="number">1</span>][<span class="number">0</span>], gt_bb[<span class="number">1</span>][<span class="number">0</span>]) <span class="comment"># upper_left_x_overlap</span></span><br><span class="line">    y_max = min(pred_bb[<span class="number">1</span>][<span class="number">1</span>], gt_bb[<span class="number">1</span>][<span class="number">1</span>]) <span class="comment"># upper_left_y_overlap</span></span><br><span class="line">    <span class="comment"># determine if the predicted bounding box and the ground-truth bounding box overlap</span></span><br><span class="line">    area_overlap = max(<span class="number">0</span>, x_max - x_min) * max(<span class="number">0</span>, y_max - y_min)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># the area of predicted bounding box</span></span><br><span class="line">    area_pred = (pred_bb[<span class="number">1</span>][<span class="number">0</span>] - pred_bb[<span class="number">0</span>][<span class="number">0</span>]) * (pred_bb[<span class="number">1</span>][<span class="number">1</span>] - pred_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of ground-truth bounding box</span></span><br><span class="line">    area_gt = (gt_bb[<span class="number">1</span>][<span class="number">0</span>] - gt_bb[<span class="number">0</span>][<span class="number">0</span>]) * (gt_bb[<span class="number">1</span>][<span class="number">1</span>] - gt_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of union</span></span><br><span class="line">    area_union = area_gt + area_pred - area_overlap</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># iou</span></span><br><span class="line">    iou = round(float(area_overlap) / area_union, <span class="number">6</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> iou</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-为什么使用IoU评估目标检测算法？"><a href="#1-2-为什么使用IoU评估目标检测算法？" class="headerlink" title="1.2 为什么使用IoU评估目标检测算法？"></a>1.2 为什么使用IoU评估目标检测算法？</h3><p>在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。<br>但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。</p>
+<h3 id="1-3-Python实现"><a href="#1-3-Python实现" class="headerlink" title="1.3 Python实现"></a>1.3 Python实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_iou</span><span class="params">(pred_bb, gt_bb)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the IoU between the predicted bounding box and the ground-truth bounding box.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)]</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    :param pred_bb: predicted bounding box</span></span><br><span class="line"><span class="string">    :param gt_bb: ground-truth bounding box</span></span><br><span class="line"><span class="string">    :return: iou, type: float</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># the area of overlap</span></span><br><span class="line">    x_min = max(pred_bb[<span class="number">0</span>][<span class="number">0</span>], gt_bb[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># lower_left_x_overlap</span></span><br><span class="line">    y_min = max(pred_bb[<span class="number">0</span>][<span class="number">1</span>], gt_bb[<span class="number">0</span>][<span class="number">1</span>]) <span class="comment"># lower_left_y_overlap</span></span><br><span class="line">    x_max = min(pred_bb[<span class="number">1</span>][<span class="number">0</span>], gt_bb[<span class="number">1</span>][<span class="number">0</span>]) <span class="comment"># upper_left_x_overlap</span></span><br><span class="line">    y_max = min(pred_bb[<span class="number">1</span>][<span class="number">1</span>], gt_bb[<span class="number">1</span>][<span class="number">1</span>]) <span class="comment"># upper_left_y_overlap</span></span><br><span class="line">    <span class="comment"># determine if the predicted bounding box and the ground-truth bounding box overlap</span></span><br><span class="line">    area_overlap = max(<span class="number">0</span>, x_max - x_min) * max(<span class="number">0</span>, y_max - y_min)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># the area of predicted bounding box</span></span><br><span class="line">    area_pred = (pred_bb[<span class="number">1</span>][<span class="number">0</span>] - pred_bb[<span class="number">0</span>][<span class="number">0</span>]) * (pred_bb[<span class="number">1</span>][<span class="number">1</span>] - pred_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of ground-truth bounding box</span></span><br><span class="line">    area_gt = (gt_bb[<span class="number">1</span>][<span class="number">0</span>] - gt_bb[<span class="number">0</span>][<span class="number">0</span>]) * (gt_bb[<span class="number">1</span>][<span class="number">1</span>] - gt_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of union</span></span><br><span class="line">    area_union = area_gt + area_pred - area_overlap</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># iou</span></span><br><span class="line">    iou = round(float(area_overlap) / area_union, <span class="number">6</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> iou</span><br></pre></td></tr></table></figure>
+<h2 id="2-mAP"><a href="#2-mAP" class="headerlink" title="2. mAP"></a>2. mAP</h2><h2 id="3-FPS"><a href="#3-FPS" class="headerlink" title="3. FPS"></a>3. FPS</h2><p>FPS，即 Frame Per Second（每秒处理帧数），是目标检测算法中评估算法处理速度的一个性能指标。在目标检测任务中，除了检测准确率以外，也尤其关注算法速度性能。只有算法速度够快，才能实现实时检测。当然，要对比不同算法速度性能，必须在相同硬件上对比测试。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/" target="_blank">IoU for object detection</a></li>
 </ol>
@@ -447,6 +473,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
+          
+        </div>
       
 
       
@@ -551,7 +585,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -597,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoU是什么？"><span class="nav-number">1.</span> <span class="nav-text">IoU是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用IoU评估目标检测算法？"><span class="nav-number">2.</span> <span class="nav-text">为什么使用IoU评估目标检测算法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python实现"><span class="nav-number">3.</span> <span class="nav-text">Python实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-IoU"><span class="nav-text">1. IoU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-IoU是什么？"><span class="nav-text">1.1 IoU是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-为什么使用IoU评估目标检测算法？"><span class="nav-text">1.2 为什么使用IoU评估目标检测算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Python实现"><span class="nav-text">1.3 Python实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-mAP"><span class="nav-text">2. mAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-FPS"><span class="nav-text">3. FPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -631,7 +683,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.1k</span>
+    <span title="Site words total count">1.2k</span>
   
 </div>
 
