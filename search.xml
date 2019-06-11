@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux Command]]></title>
+    <url>%2F2019%2F06%2F10%2Flinux-command%2F</url>
+    <content type="text"><![CDATA[1 aptapt，即Advanced Packaging Tool，是Ubuntu系统下一款命令行包管理工具，提供检索、管理以及查询包信息等命令。类似apt-get和apt-cache。常用的Linux包管理命令分散在apt-get、apt-cache、apt-config这三个命令中。apt命令的引入就是为了解决命令过于分散的问题，它包括apt-get命令出现以来使用最广泛的功能选项，以及apt-cache和apt-config命令中很少用到的功能。但是apt-get提供比apt更多、更细化、更低级的操作功能。常用命令： list - list packages based on package names search - search in package descriptions show - show package details install - install packages remove - remove packages automove - remove automatically all unused packages update - update list of available packages upgrade - upgrade the system by installing/upgrading packages full-upgrade - upgrade the system by removing/installing/upgrading packages edit-sources - edit the source information file]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[配置新安装的 Ubuntu 系统]]></title>
+    <url>%2F2019%2F06%2F10%2Fmake-ubuntu-more-powerful%2F</url>
+    <content type="text"><![CDATA[Ubuntu新安装后，默认使用官方的源，在国内访问速度很慢，这里介绍如何更换为阿里源。 1. 更换源1.1 查看Ubuntu系统codename123456$ lsb_release -a No LSB modules are available.Distributor ID: UbuntuDescription: Ubuntu 16.04.6 LTSRelease: 16.04Codename: xenial 1.2 备份官方源文件，并替换为阿里源1234$ cd /etc/apt$ sudo cp source.list source.list.bak # 备份$ vim source.list # vim编辑替换"cn.archive.ubuntu.com"为"mirrors.aliyun.com":%s/cn.archive.ubuntu.com/mirrors.aliyun.com/g 1.4 更新源&amp;软件12$ sudo apt update$ sudo apt upgrade]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NVIDIA CUDA 安装指南 ( Ubuntu )]]></title>
+    <url>%2F2019%2F06%2F10%2Finstall-cuda-and-cudnn-on-ubuntu%2F</url>
+    <content type="text"><![CDATA[本教程将 System Requirements CUDA-capable GPU A supported version of Linux with a gcc compiler and toolchain NVIDIA CUDA Toolkit ## 确认计算机是否存在GPU12$ lspci | grep -i nvidia01:00.0 VGA compatible controller: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] (rev a1) 备注：上面标准输出显示本机存在型号为：GeForce GTX 1060 的NVIDIA GPU 确认Linux系统版本是否支持1234567891011121314151617$ uname -m &amp;&amp; cat /etc/*releasex86_64DISTRIB_ID=UbuntuDISTRIB_RELEASE=16.04DISTRIB_CODENAME=xenialDISTRIB_DESCRIPTION="Ubuntu 16.04.6 LTS"NAME="Ubuntu"VERSION="16.04.6 LTS (Xenial Xerus)"ID=ubuntuID_LIKE=debianPRETTY_NAME="Ubuntu 16.04.6 LTS"VERSION_ID="16.04"HOME_URL="http://www.ubuntu.com/"SUPPORT_URL="http://help.ubuntu.com/"BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"VERSION_CODENAME=xenialUBUNTU_CODENAME=xenial 备注：上面标准输出显示本机系统版本为：Ubuntu 16.04.6 LTS (Xenial Xerus)，支持。 确认系统已安装gcc且gcc版本支持12345$ gcc --versiongcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609Copyright (C) 2015 Free Software Foundation, Inc.This is free software; see the source for copying conditions. There is NOwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 备注：上面标准输出显示本机gcc版本为5.4.0，支持。 Verify the System has the Correct Kernel Headers and Development Packages Installed 12$ uname -r4.15.0-50-generic 下载CUDA安装包，选择网络安装(个人决定，本教程以网络安装，也可本地安装) 按如下命令安装123456789$ sudo dpkg -i cuda-repo-ubuntu1604_10.1.168-1_amd64.debSelecting previously unselected package cuda-repo-ubuntu1604.(Reading database ... 292188 files and directories currently installed.)Preparing to unpack cuda-repo-ubuntu1604_10.1.168-1_amd64.deb ...Unpacking cuda-repo-ubuntu1604 (10.1.168-1) ...Setting up cuda-repo-ubuntu1604 (10.1.168-1) ...The public CUDA GPG key does not appear to be installed.To install the key, run this command:sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 123456789$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pubExecuting: /tmp/tmp.KOjHA0Rm03/gpg.1.sh --fetch-keyshttp://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pubgpgkeys: no key data found for http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pubgpg: no valid OpenPGP data found.gpg: Total number processed: 0gpg: keyserver communications error: key not foundgpg: keyserver communications error: bad public keygpg: WARNING: unable to fetch URI http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub: bad public key 上面标准输出显示添加key请求url失败。可通过如下方式替代执行：12345678910111213141516$ wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub--2019-05-20 19:23:23-- http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pubResolving developer.download.nvidia.com (developer.download.nvidia.com)... 128.1.83.59, 128.1.83.19, 128.1.83.21, ...Connecting to developer.download.nvidia.com (developer.download.nvidia.com)|128.1.83.59|:80... connected.HTTP request sent, awaiting response... 301 Moved PermanentlyLocation: https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub [following]--2019-05-20 19:23:23-- https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pubResolving developer.download.nvidia.cn (developer.download.nvidia.cn)... 61.147.234.144Connecting to developer.download.nvidia.cn (developer.download.nvidia.cn)|61.147.234.144|:443... connected.HTTP request sent, awaiting response... 200 OKLength: 1633 (1.6K) [application/octet-stream]Saving to: ‘7fa2af80.pub’7fa2af80.pub 100%[======================================================================================================&gt;] 1.59K --.-KB/s in 0s=2019-05-20 19:23:24 (518 MB/s) - ‘7fa2af80.pub’ saved [1633/1633]$ sudo apt-key add 7fa2af80.pubOK 12$ sudo apt-get update$ sudo apt-get install cuda 安装cuDNN 安装依赖-NVIDIA显卡驱动R418及以上 (推荐)在安装好CUDA后，可以直接在Ubuntu系统Setting-&gt;Soft&amp;Updates-&gt;Additional Drivers中，选择R418显卡驱动，然后点击“Apply Changes”。(本教程选择该种方法) 可以在NVIDIA显卡驱动下载页选择相应GPU版本，系统版本对应的NVIDIA显卡驱动进行下载安装。 安装显卡驱动兼容的CUDA 10.1(本教程更新时最新版本)安装依赖-NVIDIA显卡驱动R418 安装cuDNN在cuDNN下载链接下载以下三个文件。 cuDNN Runtime Library for Ubuntu16.04 (Deb) cuDNN Developer Library for Ubuntu16.04 (Deb) cuDNN Code Samples and User Guide for Ubuntu16.04 (Deb) 在下面的教程中： CUDA默认安装目录为：/usr/local/cuda/ cudnn下载目录假设为：&lt;cudnnpath&gt; 进入包含上述下载的三个文件的目录，解压cuDNN包：123$ cd &lt;cudnnpath&gt;$ tar -xvf cudnn-9.0-linux-x64-v7.tgz$ Reference cudnn安装官网参考链接 cuda安装官网参考链接 References NVIDIA CUDA Installation Guide for Linux]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Software</category>
+      </categories>
+      <tags>
+        <tag>GPU</tag>
+        <tag>CUDA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Point Cloud Library ( PCL )]]></title>
+    <url>%2F2019%2F06%2F10%2Fpoint-cloud-library%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Support Vector Machine ( SVM )]]></title>
+    <url>%2F2019%2F06%2F09%2Fmachine-learning-svm%2F</url>
+    <content type="text"><![CDATA[SVM很好的应用于高维数据，避免了维灾难问题支持向量，子集 线性可分什么是线性可分？我们以最简单的二分类为例。如图所示，红色和绿色分别代表两类样本。该数据集是线性可分的，即可以找到这样一个超平面，使得所有红色的样本在一侧，所有绿色的样本再另外一侧。正如图所示，这样的超平面有无穷多个，它们在训练样本上的误差均为0，那么我们应该选择怎样的超平面呢？ 最大边缘超平面直观上，具有较大边缘的决策边界泛化性能更好。因为如果边缘较小，则鞠策边界附近轻微的扰动都可能对分类产生显著的影响，从而在未知样本上泛化性能很差理论上（待补充，是否有必要补充？） SVM为介绍SVM，我么以最简单的二分类为例。假设训练集有$N$个样本$({\bold{x}}_1, y_1),(x_2, y_2),…,(x_N,y_N)$。其中，$x_i\in\rm I!R$，$y_i\in{-1, 1}$。 一个决策边界可以表示为：$$\bold{w}^T\bold{x}+b=0$$ 间隔$M=\frac{}{}$ 线性不可分软间隔非线性核函数]]></content>
+      <categories>
+        <category>Machine Learning</category>
+        <category>SVM</category>
+      </categories>
+      <tags>
+        <tag>SVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[You Only Look Once ( YOLO )]]></title>
+    <url>%2F2019%2F06%2F06%2Fobject-detection-yolo%2F</url>
+    <content type="text"><![CDATA[YOLO，”You Only Look Once” 的缩写，是一种新的目标检测算法。之前的相关工作都是使用分类器来做目标检测，但YOLO将目标检测当成一个回归问题：在空间结构(图像)上预测分割后的边界框(bounding box)和对应的分类概率。单个神经网络在一次评估中直接从整张图片预测边界框和分类概率，且由于整个目标检测过程中只有一个神经网络，所以网络可以直接进行端到端的优化。YOLO有如下4个特点：（1）快，标准的YOLO每秒可以处理45帧图片。一个小规模的版本(Fast YOLO)，每秒可以处理155帧图片，同时仍然可以去的其他实时检测算法的两倍mAP。2、和最先进的检测系统比，YOLO会产生更多的定位错误(localization errors)，但是在background上更少的预测false positives。3、泛化性能好：YOLO能学习目标的一般表征。和包括DPM以及R-CNN的其他方法相比，当从自然图像泛化到其他领域(比如“艺术”)时，YOLO性能更优。 YOLOReferences You Only Look Once: Unified, Real-Time Object Detection YOLO 官网 CVPR(2016) Talk CVPR(2016) Slides CVPR(2016) Reviews]]></content>
+      <categories>
+        <category>Object Detection</category>
+      </categories>
+      <tags>
+        <tag>Object Detection</tag>
+        <tag>YOLO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu 系统安装“钉钉”]]></title>
     <url>%2F2019%2F05%2F20%2Finstall-dd-on-ubuntu%2F</url>
     <content type="text"><![CDATA[本文介绍如何在Ubuntu系统中安装“钉钉软件” 配置方法 下载“钉钉安装包” 打开“终端”，命令行安装：$ sudo dpkg -i dingding.deb 首次启动“钉钉”：$ dtalk 任务栏右击图标，将钉钉“快捷方式”固定到任务栏，之后直接点击“快捷方式”打开钉钉即可。]]></content>
@@ -14,16 +72,14 @@
     <url>%2F2019%2F05%2F16%2Fevaluation-for-object-detection%2F</url>
     <content type="text"><![CDATA[本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。 1. IoU首先介绍IoU指标是什么？其次解释在目标检测算法中，为什么我们使用IoU评估指标。最后提供IoU指标的一个Python实现。 1.1 IoU是什么？IoU, 即 Intersection over Union，又称“交并比”，是用于评估目标检测算法准确率的常用指标之一。在2D目标检测中，边界框(bounding box)是垂直于xy坐标系的一个个矩形【用矩形的左下角点坐标(x_min, y_min)和右上角点坐标(x_max, y_max)定义一个边界框】，每个矩形中是图像中的目标。我们希望算法预测的一个个矩形边界框既能框住目标，又能使框尽可能的小。任何可以预测边界框的算法都可以使用IoU指标评估算法性能。要计算IoU，需要： 真实的边界框(比如，数据集上人工标注的边界框，指定图像中目标的位置) 模型预测的边界框 只要有了这两个边界框，就可以计算IoU。 如图所示，该图是检测一个图像中的停车标志的例子。其中，红线表示算法预测的边界框，绿线表示真实(比如，人工标注)的边界框。$$IoU=\frac{\text{预测的边界框和真实的边界框的交集}}{\text{预测的边界框和真实的边界框的并集}}$$在有监督算法中，模型训练需要三个数据集： 训练集：用于训练模型(这里指的是目标检测算法)的数据集 验证集：用于调整模型超参数的数据集 测试集：模型训练好后，用于测试模型效果的数据集 无论是训练集、验证集还是测试集中，在目标检测算法中都包含： 图像本身 图像中一个个框住目标的边界框[(x_min, y_min), (x_max, y_max)]，且每个边界框都指定了所包含目标的的类别(class) 一般情况下，我们认为IoU大于0.5的是一个好的预测。当然，在使用中，你也可以设置更严格的阈值。 1.2 为什么使用IoU评估目标检测算法？在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。 1.3 Python实现123456789101112131415161718192021222324252627282930def compute_iou(pred_bb, gt_bb): """Compute the IoU between the predicted bounding box and the ground-truth bounding box. bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)] :param pred_bb: predicted bounding box :param gt_bb: ground-truth bounding box :return: iou, type: float """ # the area of overlap x_min = max(pred_bb[0][0], gt_bb[0][0]) # lower_left_x_overlap y_min = max(pred_bb[0][1], gt_bb[0][1]) # lower_left_y_overlap x_max = min(pred_bb[1][0], gt_bb[1][0]) # upper_left_x_overlap y_max = min(pred_bb[1][1], gt_bb[1][1]) # upper_left_y_overlap # determine if the predicted bounding box and the ground-truth bounding box overlap area_overlap = max(0, x_max - x_min) * max(0, y_max - y_min) # the area of predicted bounding box area_pred = (pred_bb[1][0] - pred_bb[0][0]) * (pred_bb[1][1] - pred_bb[0][1]) # the area of ground-truth bounding box area_gt = (gt_bb[1][0] - gt_bb[0][0]) * (gt_bb[1][1] - gt_bb[0][1]) # the area of union area_union = area_gt + area_pred - area_overlap # iou iou = round(float(area_overlap) / area_union, 6) return iou 2. mAP3. FPSFPS，即 Frame Per Second（每秒处理帧数），是目标检测算法中评估算法处理速度的一个性能指标。在目标检测任务中，除了检测准确率以外，也尤其关注算法速度性能。只有算法速度够快，才能实现实时检测。当然，要对比不同算法速度性能，必须在相同硬件上对比测试。 Reference IoU for object detection]]></content>
       <categories>
-        <category>Deep Learning</category>
         <category>Object Detection</category>
       </categories>
       <tags>
-        <tag>Deep Learning</tag>
         <tag>Object Detection</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo-NexT theme customization]]></title>
+    <title><![CDATA[Hexo 的 NexT 主题定制]]></title>
     <url>%2F2019%2F03%2F30%2Fhexo-next-theme-customization%2F</url>
     <content type="text"><![CDATA[本文介绍如何个性化定制自己的博客网站。比如，在网站的左/右上角实现“fork me on github”功能。 效果图 方法在GitHub Ribbons或GitHub Corners中挑选喜欢的样式，并复制代码粘贴到“themes/next/layout/_layout.swig”文件中(放在&lt;div class=”headband”>&lt;/div>下面)，并把href改为你的github地址 Reference hexo的next主题个性化配置教程]]></content>
       <categories>

@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="GPU,CUDA,">
 
 
 
@@ -117,16 +117,18 @@
 
 
 
-<meta name="description" content="Be a better man.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Y&amp;L">
-<meta property="og:url" content="http://yoursite.com/categories/Hexo/index.html">
+<meta name="description" content="本教程将">
+<meta name="keywords" content="GPU,CUDA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NVIDIA CUDA 安装指南 ( Ubuntu )">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/install-cuda-and-cudnn-on-ubuntu/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="Be a better man.">
+<meta property="og:description" content="本教程将">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-10T11:33:58.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Y&amp;L">
-<meta name="twitter:description" content="Be a better man.">
+<meta name="twitter:title" content="NVIDIA CUDA 安装指南 ( Ubuntu )">
+<meta name="twitter:description" content="本教程将">
 
 
 
@@ -156,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Hexo/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/10/install-cuda-and-cudnn-on-ubuntu/">
 
 
 
 
 
-  <title>Category: Hexo | Y&L</title>
+  <title>NVIDIA CUDA 安装指南 ( Ubuntu ) | Y&L</title>
   
 
 
@@ -179,7 +181,7 @@
   
   
 
-  <div class="container  ">
+  <div class="container  page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/naifanlee" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,53 +317,290 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Hexo<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/install-cuda-and-cudnn-on-ubuntu/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Y&L">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/03/30/hexo-next-theme-customization/" itemprop="url">
-              
-                <span itemprop="name">Hexo 的 NexT 主题定制</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">NVIDIA CUDA 安装指南 ( Ubuntu )</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-30T00:00:00+08:00" content="2019-03-30">
-          03-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+			
+         	  <div class="post-tags">
+                
+                  <a href="/tags/GPU/" rel="tag"># GPU</a>
+                
+                  <a href="/tags/CUDA/" rel="tag"># CUDA</a>
+                
+               </div>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Created &#58;</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-10T16:12:55+08:00">
+                2019-06-10
+              </time>
+            
 
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Updated &#58;</span>
+              
+              <time title="Updated" itemprop="dateModified" datetime="2019-06-10T19:33:58+08:00">
+                2019-06-10
+              </time>
+            
+          </span>
+		  
+            
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words &asymp;</span>
+                
+                <span title="Words">
+                  956
+                </span>
+              
+
+              
+
+              
+            
+          
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Category &#58;</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+	
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本教程将<br><a id="more"></a></p>
+<h2 id="System-Requirements"><a href="#System-Requirements" class="headerlink" title="System Requirements"></a>System Requirements</h2><ul>
+<li>CUDA-capable GPU</li>
+<li>A supported version of Linux with a gcc compiler and toolchain</li>
+<li><a href="http://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">NVIDIA CUDA Toolkit</a></li>
+</ul>
+<p>## </p>
+<ol>
+<li>确认计算机是否存在GPU<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ lspci | grep -i nvidia</span><br><span class="line">01:00.0 VGA compatible controller: NVIDIA Corporation GP106M [GeForce GTX 1060 Mobile] (rev a1)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>备注：上面标准输出显示本机存在型号为：GeForce GTX 1060 的NVIDIA GPU</p>
+</blockquote>
+<ol start="2">
+<li>确认Linux系统版本是否支持<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ uname -m &amp;&amp; cat /etc/*release</span><br><span class="line">x86_64</span><br><span class="line">DISTRIB_ID=Ubuntu</span><br><span class="line">DISTRIB_RELEASE=16.04</span><br><span class="line">DISTRIB_CODENAME=xenial</span><br><span class="line">DISTRIB_DESCRIPTION=<span class="string">"Ubuntu 16.04.6 LTS"</span></span><br><span class="line">NAME=<span class="string">"Ubuntu"</span></span><br><span class="line">VERSION=<span class="string">"16.04.6 LTS (Xenial Xerus)"</span></span><br><span class="line">ID=ubuntu</span><br><span class="line">ID_LIKE=debian</span><br><span class="line">PRETTY_NAME=<span class="string">"Ubuntu 16.04.6 LTS"</span></span><br><span class="line">VERSION_ID=<span class="string">"16.04"</span></span><br><span class="line">HOME_URL=<span class="string">"http://www.ubuntu.com/"</span></span><br><span class="line">SUPPORT_URL=<span class="string">"http://help.ubuntu.com/"</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">"http://bugs.launchpad.net/ubuntu/"</span></span><br><span class="line">VERSION_CODENAME=xenial</span><br><span class="line">UBUNTU_CODENAME=xenial</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>备注：上面标准输出显示本机系统版本为：Ubuntu 16.04.6 LTS (Xenial Xerus)，支持。</p>
+</blockquote>
+<ol start="3">
+<li>确认系统已安装gcc且gcc版本支持<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gcc --version</span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the <span class="built_in">source</span> <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>备注：上面标准输出显示本机gcc版本为5.4.0，支持。</p>
+</blockquote>
+<ol start="4">
+<li><p>Verify the System has the Correct Kernel Headers and Development Packages Installed</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ uname -r</span><br><span class="line">4.15.0-50-generic</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1604&amp;target_type=debnetwork" target="_blank" rel="noopener">下载CUDA安装包</a>，选择网络安装(个人决定，本教程以网络安装，也可本地安装)</p>
+</li>
+<li>按如下命令安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1604_10.1.168-1_amd64.deb</span><br><span class="line">Selecting previously unselected package cuda-repo-ubuntu1604.</span><br><span class="line">(Reading database ... 292188 files and directories currently installed.)</span><br><span class="line">Preparing to unpack cuda-repo-ubuntu1604_10.1.168-1_amd64.deb ...</span><br><span class="line">Unpacking cuda-repo-ubuntu1604 (10.1.168-1) ...</span><br><span class="line">Setting up cuda-repo-ubuntu1604 (10.1.168-1) ...</span><br><span class="line">The public CUDA GPG key does not appear to be installed.</span><br><span class="line">To install the key, run this <span class="built_in">command</span>:</span><br><span class="line">sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">Executing: /tmp/tmp.KOjHA0Rm03/gpg.1.sh --fetch-keys</span><br><span class="line">http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">gpgkeys: no key data found <span class="keyword">for</span> http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">gpg: no valid OpenPGP data found.</span><br><span class="line">gpg: Total number processed: 0</span><br><span class="line">gpg: keyserver communications error: key not found</span><br><span class="line">gpg: keyserver communications error: bad public key</span><br><span class="line">gpg: WARNING: unable to fetch URI http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub: bad public key</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>上面标准输出显示添加key请求url失败。可通过如下方式替代执行：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">--2019-05-20 19:23:23--  http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">Resolving developer.download.nvidia.com (developer.download.nvidia.com)... 128.1.83.59, 128.1.83.19, 128.1.83.21, ...</span><br><span class="line">Connecting to developer.download.nvidia.com (developer.download.nvidia.com)|128.1.83.59|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 301 Moved Permanently</span><br><span class="line">Location: https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub [following]</span><br><span class="line">--2019-05-20 19:23:23--  https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">Resolving developer.download.nvidia.cn (developer.download.nvidia.cn)... 61.147.234.144</span><br><span class="line">Connecting to developer.download.nvidia.cn (developer.download.nvidia.cn)|61.147.234.144|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 1633 (1.6K) [application/octet-stream]</span><br><span class="line">Saving to: ‘7fa2af80.pub’</span><br><span class="line">7fa2af80.pub                                    100%[======================================================================================================&gt;]   1.59K  --.-KB/s    <span class="keyword">in</span> 0s=</span><br><span class="line">2019-05-20 19:23:24 (518 MB/s) - ‘7fa2af80.pub’ saved [1633/1633]</span><br><span class="line">$ sudo apt-key add 7fa2af80.pub</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure>
+<h2 id="安装cuDNN"><a href="#安装cuDNN" class="headerlink" title="安装cuDNN"></a>安装cuDNN</h2><ol>
+<li>安装依赖-NVIDIA显卡驱动R418及以上<ul>
+<li>(推荐)在安装好CUDA后，可以直接在Ubuntu系统Setting-&gt;Soft&amp;Updates-&gt;Additional Drivers中，选择R418显卡驱动，然后点击“Apply Changes”。(本教程选择该种方法)</li>
+<li>可以在<a href="https://www.nvidia.com/Download/index.aspx?lang=en-us#" target="_blank" rel="noopener">NVIDIA显卡驱动下载页</a>选择相应GPU版本，系统版本对应的NVIDIA显卡驱动进行下载安装。</li>
+</ul>
+</li>
+<li>安装显卡驱动兼容的CUDA 10.1(本教程更新时最新版本)<h3 id="安装依赖-NVIDIA显卡驱动R418"><a href="#安装依赖-NVIDIA显卡驱动R418" class="headerlink" title="安装依赖-NVIDIA显卡驱动R418"></a>安装依赖-NVIDIA显卡驱动R418</h3></li>
+<li>安装cuDNN<br>在<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">cuDNN下载链接</a>下载以下三个文件。</li>
+<li>cuDNN Runtime Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN Developer Library for Ubuntu16.04 (Deb)</li>
+<li>cuDNN Code Samples and User Guide for Ubuntu16.04 (Deb)</li>
+</ol>
+<p>在下面的教程中：</p>
+<ul>
+<li>CUDA默认安装目录为：<code>/usr/local/cuda/</code></li>
+<li>cudnn下载目录假设为：<code>&lt;cudnnpath&gt;</code></li>
+</ul>
+<p>进入包含上述下载的三个文件的目录，解压cuDNN包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;cudnnpath&gt;</span><br><span class="line">$ tar -xvf cudnn-9.0-linux-x64-v7.tgz</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html" target="_blank" rel="noopener">cudnn安装官网参考链接</a></li>
+<li><a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank" rel="noopener">cuda安装官网参考链接</a></li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank" rel="noopener">NVIDIA CUDA Installation Guide for Linux</a></li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/10/point-cloud-library/" rel="next" title="Point Cloud Library ( PCL )">
+                <i class="fa fa-chevron-left"></i> Point Cloud Library ( PCL )
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/10/make-ubuntu-more-powerful/" rel="prev" title="配置新安装的 Ubuntu 系统">
+                配置新安装的 Ubuntu 系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -369,6 +608,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -389,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -468,6 +720,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Requirements"><span class="nav-text">System Requirements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装cuDNN"><span class="nav-text">安装cuDNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖-NVIDIA显卡驱动R418"><span class="nav-text">安装依赖-NVIDIA显卡驱动R418</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -606,6 +874,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

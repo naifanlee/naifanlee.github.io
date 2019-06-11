@@ -45,6 +45,44 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Verdana:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -68,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Deep Learning,Object Detection,">
+  <meta name="keywords" content="Object Detection,">
 
 
 
@@ -80,7 +118,7 @@
 
 
 <meta name="description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
-<meta name="keywords" content="Deep Learning,Object Detection">
+<meta name="keywords" content="Object Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2D目标检测中的评价指标">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/evaluation-for-object-detection/index.html">
@@ -88,7 +126,7 @@
 <meta property="og:description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/05/16/evaluation-for-object-detection/20190516-bounding-box-example.jpg">
-<meta property="og:updated_time" content="2019-05-17T03:35:22.688Z">
+<meta property="og:updated_time" content="2019-06-08T04:06:09.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2D目标检测中的评价指标">
 <meta name="twitter:description" content="本文主要介绍2D目标检测中有哪些常用的评价算法好坏的指标，包括 IoU, mAP, FPS 等。">
@@ -102,7 +140,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -135,16 +173,6 @@
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?590e288aad35f5e58f66ee43dba60bce";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
 
 
 
@@ -154,10 +182,8 @@
 
   
   
-    
-  
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container  page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/naifanlee" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -329,12 +355,20 @@
 
         <div class="post-meta">
           <span class="post-time">
+			
+         	  <div class="post-tags">
+                
+                  <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
+                
+               </div>
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted :</span>
+                <span class="post-meta-item-text">Created &#58;</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T21:04:31+08:00">
                 2019-05-16
@@ -350,10 +384,10 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Modified &#58;</span>
+                <span class="post-meta-item-text">Updated &#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-17T11:35:22+08:00">
-                2019-05-17
+              <time title="Updated" itemprop="dateModified" datetime="2019-06-08T12:06:09+08:00">
+                2019-06-08
               </time>
             
           </span>
@@ -367,10 +401,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">&#58;</span>
+                  <span class="post-meta-item-text">Words &asymp;</span>
                 
-                <span title="Words count in article">
-                  1.1k words
+                <span title="Words">
+                  1.1k
                 </span>
               
 
@@ -389,22 +423,11 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">Category &#58;</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/Object-Detection/" itemprop="url" rel="index">
+                  <a href="/categories/Object-Detection/" itemprop="url" rel="index">
                     <span itemprop="name">Object Detection</span>
                   </a>
                 </span>
@@ -466,9 +489,9 @@
 <h3 id="1-2-为什么使用IoU评估目标检测算法？"><a href="#1-2-为什么使用IoU评估目标检测算法？" class="headerlink" title="1.2 为什么使用IoU评估目标检测算法？"></a>1.2 为什么使用IoU评估目标检测算法？</h3><p>在一般的分类算法中，模型预测的类别和真实类别相同，则预测正确。若模型预测的类别和真实类别不同，则预测错误。所以在传统的分类算法而言，计算算法准确率简单粗暴。<br>但是在目标检测中不同的是：一般而言，各种原因(超参数微调，特征提取方法等)导致预测的边界框和真实的边界框几乎不可能完全一样。所以完全匹配预测的边界框和真实的边界框是不现实的。但我们可以构建一个指标来描述预测的边界框和真实边界框重合多少的程度，重合越多，可以认为预测的越好。反之，预测的不好。虽然我们几乎不可能边界框(坐标)的完全匹配，但我们希望尽可能的保证预测的边界框和真实的边界框匹配程度越大越好。</p>
 <h3 id="1-3-Python实现"><a href="#1-3-Python实现" class="headerlink" title="1.3 Python实现"></a>1.3 Python实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_iou</span><span class="params">(pred_bb, gt_bb)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the IoU between the predicted bounding box and the ground-truth bounding box.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    bounding box: [(lower_left_x, lower_left_y), (upper_right_x, upper_right_y)]</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    :param pred_bb: predicted bounding box</span></span><br><span class="line"><span class="string">    :param gt_bb: ground-truth bounding box</span></span><br><span class="line"><span class="string">    :return: iou, type: float</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># the area of overlap</span></span><br><span class="line">    x_min = max(pred_bb[<span class="number">0</span>][<span class="number">0</span>], gt_bb[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># lower_left_x_overlap</span></span><br><span class="line">    y_min = max(pred_bb[<span class="number">0</span>][<span class="number">1</span>], gt_bb[<span class="number">0</span>][<span class="number">1</span>]) <span class="comment"># lower_left_y_overlap</span></span><br><span class="line">    x_max = min(pred_bb[<span class="number">1</span>][<span class="number">0</span>], gt_bb[<span class="number">1</span>][<span class="number">0</span>]) <span class="comment"># upper_left_x_overlap</span></span><br><span class="line">    y_max = min(pred_bb[<span class="number">1</span>][<span class="number">1</span>], gt_bb[<span class="number">1</span>][<span class="number">1</span>]) <span class="comment"># upper_left_y_overlap</span></span><br><span class="line">    <span class="comment"># determine if the predicted bounding box and the ground-truth bounding box overlap</span></span><br><span class="line">    area_overlap = max(<span class="number">0</span>, x_max - x_min) * max(<span class="number">0</span>, y_max - y_min)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># the area of predicted bounding box</span></span><br><span class="line">    area_pred = (pred_bb[<span class="number">1</span>][<span class="number">0</span>] - pred_bb[<span class="number">0</span>][<span class="number">0</span>]) * (pred_bb[<span class="number">1</span>][<span class="number">1</span>] - pred_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of ground-truth bounding box</span></span><br><span class="line">    area_gt = (gt_bb[<span class="number">1</span>][<span class="number">0</span>] - gt_bb[<span class="number">0</span>][<span class="number">0</span>]) * (gt_bb[<span class="number">1</span>][<span class="number">1</span>] - gt_bb[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># the area of union</span></span><br><span class="line">    area_union = area_gt + area_pred - area_overlap</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># iou</span></span><br><span class="line">    iou = round(float(area_overlap) / area_union, <span class="number">6</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> iou</span><br></pre></td></tr></table></figure>
 <h2 id="2-mAP"><a href="#2-mAP" class="headerlink" title="2. mAP"></a>2. mAP</h2><h2 id="3-FPS"><a href="#3-FPS" class="headerlink" title="3. FPS"></a>3. FPS</h2><p>FPS，即 Frame Per Second（每秒处理帧数），是目标检测算法中评估算法处理速度的一个性能指标。在目标检测任务中，除了检测准确率以外，也尤其关注算法速度性能。只有算法速度够快，才能实现实时检测。当然，要对比不同算法速度性能，必须在相同硬件上对比测试。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/" target="_blank">IoU for object detection</a></li>
-</ol>
+</ul>
 
       
     </div>
@@ -479,42 +502,10 @@
     
 
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Lee WeChat Pay">
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
 
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
-          
-            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
-          
-        </div>
       
 
       
@@ -525,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/30/hexo-next-theme-customization/" rel="next" title="Hexo-NexT theme customization">
-                <i class="fa fa-chevron-left"></i> Hexo-NexT theme customization
+              <a href="/2019/03/30/hexo-next-theme-customization/" rel="next" title="Hexo 的 NexT 主题定制">
+                <i class="fa fa-chevron-left"></i> Hexo 的 NexT 主题定制
               </a>
             
           </div>
@@ -616,7 +607,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -627,7 +618,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -638,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -721,7 +712,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.3k</span>
+    <span title="Site words total count">3.2k</span>
   
 </div>
 
@@ -748,6 +739,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
