@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Y&amp;L">
 <meta property="og:description" content="SVM很好的应用于高维数据，避免了维灾难问题支持向量，子集">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-11T15:34:24.022Z">
+<meta property="og:updated_time" content="2019-06-11T16:01:35.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Support Vector Machine ( SVM )">
 <meta name="twitter:description" content="SVM很好的应用于高维数据，避免了维灾难问题支持向量，子集">
@@ -384,8 +384,8 @@
               
                 <span class="post-meta-item-text">Updated &#58;</span>
               
-              <time title="Updated" itemprop="dateModified" datetime="2019-06-11T23:34:24+08:00">
-                2019-06-11
+              <time title="Updated" itemprop="dateModified" datetime="2019-06-12T00:01:35+08:00">
+                2019-06-12
               </time>
             
           </span>
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">Words &asymp;</span>
                 
                 <span title="Words">
-                  453
+                  593
                 </span>
               
 
@@ -477,12 +477,13 @@
         <p>SVM<br>很好的应用于高维数据，避免了维灾难问题<br>支持向量，子集<br><a id="more"></a></p>
 <h2 id="线性可分"><a href="#线性可分" class="headerlink" title="线性可分"></a>线性可分</h2><p>什么是线性可分？我们以最简单的二分类为例。如图所示，红色和绿色分别代表两类样本。该数据集是线性可分的，即可以找到这样一个超平面，使得所有红色的样本在一侧，所有绿色的样本再另外一侧。正如图所示，这样的超平面有无穷多个，它们在训练样本上的误差均为0，那么我们应该选择怎样的超平面呢？</p>
 <h3 id="最大边缘超平面"><a href="#最大边缘超平面" class="headerlink" title="最大边缘超平面"></a>最大边缘超平面</h3><p>直观上，具有较大边缘的决策边界泛化性能更好。因为如果边缘较小，则鞠策边界附近轻微的扰动都可能对分类产生显著的影响，从而在未知样本上泛化性能很差<br>理论上（待补充，是否有必要补充？）<br>简单起见，以线性可分的二分类为例。假设训练集有$m$个样本${({\boldsymbol{x}}_1, y_1),(\boldsymbol{x}_2, y_2),…,(\boldsymbol{x}_m,y_m)}$。其中，$x_i\in\rm I!R$，$y_i\in{-1, 1}$(方便数学上的处理)。</p>
-<p>一个决策边界可以表示为：<br>$$\boldsymbol{w^T} \boldsymbol{x}+b=0$$</p>
+<p>一个决策边界可以表示为：<br>$$\boldsymbol{w}^T \boldsymbol{x}+b=0$$</p>
 <p>损失函数：</p>
-<p>$$\begin{aligned}<br>L=\max_{\boldsymbol{w},b}&amp;\frac{1}{||\boldsymbol{w}||} \<br>\text{subject to}\;\;y_i(\boldsymbol{w^Tx_i}+b)\ge&amp;1, i=1,2,…,m.<br>\end{aligned}$$</p>
+<p>$$\begin{aligned}<br>L=\max_{\boldsymbol{w},b}&amp;\frac{1}{||\boldsymbol{w}||} \\<br>\text{subject to}\;\;y_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge&amp;1, i=1,2,…,m.<br>\end{aligned}$$</p>
 <p>等价于</p>
-<p>$$\begin{aligned}<br>L=\min_{\boldsymbol{w},b}\frac{1}{2}&amp;||\boldsymbol{w}||^2 \<br>\text{subject to}\;\;y_i(\boldsymbol{w^Tx_i}+b)\ge&amp;1, i=1,2,…,m.<br>\end{aligned}$$</p>
-<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>注意到式为一个凸二次规划(convex quadratic programming)问题。使用拉格朗日乘子转化：<br>$$L(w,b,\alpha)=\frac{1}{2}||\boldsymbol{w}^2||+\sum_{i=1}^m \alpha_i(1-y_i(\boldsymbol{w}^T\boldsymbol{x}_i+b))$$</p>
+<p>$$\begin{aligned}<br>L=\min_{\boldsymbol{w},b}\frac{1}{2}&amp;||\boldsymbol{w}||^2 \\<br>\text{subject to}\;\;y_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge&amp;1, i=1,2,…,m.<br>\end{aligned}$$</p>
+<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>注意到式为一个凸二次规划(convex quadratic programming)问题。使用拉格朗日乘子转化：<br>$$L(\boldsymbol{w},b,\boldsymbol{\alpha})=\frac{1}{2}||\boldsymbol{w}^2||-\sum_{i=1}^m \alpha_i(y_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)-1)$$<br>其中$\boldsymbol{\alpha}=(\alpha_1, \alpha_2,…,\alpha_m)$。令$L(\boldsymbol{w},b,\boldsymbol{\alpha})$对$\boldsymbol{w}$和$b$的偏导数为0，可得：<br>$$<br>\begin{aligned}<br>\boldsymbol{w} &amp;= \sum_{i=1}^m \alpha_i y_i \boldsymbol{x}<em>i \\<br>0 &amp;= \sum</em>{i=1}^m \alpha_i y_i<br>\end{aligned}<br>$$</p>
+<p>将式带入式，即可将$L(\boldsymbol{w},b,\boldsymbol{\alpha})$中的$\boldsymbol{w}$和$b$消去，得对偶问题：<br>$$<br>\begin{aligned}<br>\min L(\boldsymbol{\alpha})&amp;=\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_jy_iy_jx_i^Tx_j-\sum_{i=1}^m\alpha_i \\<br>&amp;\text{subject to}\;\;\sum_{i=1}^m\alpha_iy_i=0 \\<br>&amp;\alpha_i\ge0,i=1,2,…,m<br>\end{aligned}<br>$$<br>求解方法：SMO ( Sequential MinimalOptimization )[Platt, 1998]</p>
 <h2 id="线性不可分"><a href="#线性不可分" class="headerlink" title="线性不可分"></a>线性不可分</h2><h3 id="软间隔"><a href="#软间隔" class="headerlink" title="软间隔"></a>软间隔</h3><h2 id="非线性"><a href="#非线性" class="headerlink" title="非线性"></a>非线性</h2><h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3>
       
     </div>
@@ -703,7 +704,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.4k</span>
+    <span title="Site words total count">3.5k</span>
   
 </div>
 
