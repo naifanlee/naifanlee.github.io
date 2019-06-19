@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="VPN,">
 
 
 
@@ -117,17 +117,29 @@
 
 
 
-<meta name="description" content="1">
+<meta name="description" content="本文">
+<meta name="keywords" content="VPN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command">
-<meta property="og:url" content="http://yoursite.com/2019/06/10/linux-command/index.html">
+<meta property="og:title" content="配置 VPN 代理 ( Google Cloud Platform )">
+<meta property="og:url" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="1">
+<meta property="og:description" content="本文">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-10T11:26:45.435Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn3.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn5.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn6.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn7.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn8.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn9.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn10.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn11.png">
+<meta property="og:updated_time" content="2019-06-19T10:27:51.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command">
-<meta name="twitter:description" content="1">
+<meta name="twitter:title" content="配置 VPN 代理 ( Google Cloud Platform )">
+<meta name="twitter:description" content="本文">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn1.png">
 
 
 
@@ -157,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/10/linux-command/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/">
 
 
 
 
 
-  <title>Linux Command | Y&L</title>
+  <title>配置 VPN 代理 ( Google Cloud Platform ) | Y&L</title>
   
 
 
@@ -330,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/linux-command/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lee">
@@ -347,12 +359,18 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command</h1>
+          <h1 class="post-title" itemprop="name headline">配置 VPN 代理 ( Google Cloud Platform )</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
 			
+         	  <div class="post-tags">
+                
+                  <a href="/tags/VPN/" rel="tag"># VPN</a>
+                
+               </div>
+            
 
             
               <span class="post-meta-item-icon">
@@ -361,8 +379,8 @@
               
                 <span class="post-meta-item-text">Created &#58;</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-10T18:17:00+08:00">
-                2019-06-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-19T17:25:52+08:00">
+                2019-06-19
               </time>
             
 
@@ -377,8 +395,8 @@
               
                 <span class="post-meta-item-text">Updated &#58;</span>
               
-              <time title="Updated" itemprop="dateModified" datetime="2019-06-10T19:26:45+08:00">
-                2019-06-10
+              <time title="Updated" itemprop="dateModified" datetime="2019-06-19T18:27:51+08:00">
+                2019-06-19
               </time>
             
           </span>
@@ -395,7 +413,7 @@
                   <span class="post-meta-item-text">Words &asymp;</span>
                 
                 <span title="Words">
-                  207
+                  501
                 </span>
               
 
@@ -405,6 +423,28 @@
             
           
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Category &#58;</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/utils/" itemprop="url" rel="index">
+                    <span itemprop="name">utils</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -434,20 +474,38 @@
       
 
       
-        <p>1<br><a id="more"></a></p>
-<h2 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h2><p>apt，即Advanced Packaging Tool，是Ubuntu系统下一款命令行包管理工具，提供检索、管理以及查询包信息等命令。类似<code>apt-get</code>和<code>apt-cache</code>。常用的Linux包管理命令分散在apt-get、apt-cache、apt-config这三个命令中。apt命令的引入就是为了解决命令过于分散的问题，它包括apt-get命令出现以来使用最广泛的功能选项，以及apt-cache和apt-config命令中很少用到的功能。但是apt-get提供比apt更多、更细化、更低级的操作功能。<br>常用命令：</p>
+        <p>本文</p>
+<a id="more"></a>
 <ul>
-<li>list - list packages based on package names</li>
-<li>search - search in package descriptions</li>
-<li>show - show package details</li>
-<li>install - install packages</li>
-<li>remove - remove packages</li>
-<li>automove - remove automatically all unused packages</li>
-<li>update - update list of available packages</li>
-<li>upgrade - upgrade the system by installing/upgrading packages</li>
-<li>full-upgrade - upgrade the system by removing/installing/upgrading packages</li>
-<li>edit-sources - edit the source information file</li>
+<li>可以临时登录国外网站的VPN代理</li>
+<li>Visa信用卡</li>
 </ul>
+<h2 id="1-申请-Google-Cloud-免费试用"><a href="#1-申请-Google-Cloud-免费试用" class="headerlink" title="1. 申请 Google Cloud 免费试用"></a>1. 申请 Google Cloud 免费试用</h2><h3 id="1-1-登录-cloud-google-com"><a href="#1-1-登录-cloud-google-com" class="headerlink" title="1.1 登录 cloud.google.com"></a>1.1 登录 <a href="https://cloud.google.com" target="_blank" rel="noopener">cloud.google.com</a></h3><p>(需要临时代理) 随便在网上找到一些免费试用的的代理即可，但必须在免费试用时间内完成下面全部操作。点击“免费试用”<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn1.png"></p>
+<h3 id="1-2-注册"><a href="#1-2-注册" class="headerlink" title="1.2 注册"></a>1.2 注册</h3><p>注册过程中的地址/邮编随便选择即可。最终可获得$300，一年有效期的免费试用。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn2.png"></p>
+<h2 id="2-创建-Google-VM-实例"><a href="#2-创建-Google-VM-实例" class="headerlink" title="2. 创建 Google VM 实例"></a>2. 创建 Google VM 实例</h2><h3 id="2-1-创建实例"><a href="#2-1-创建实例" class="headerlink" title="2.1 创建实例"></a>2.1 创建实例</h3><p>在计算引擎( Computer Engine )下的VM实例下点击“创建实例”<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn3.png"><br><img src="/2019/06/19/configure-vpn-proxy-server/vpn5.png"></p>
+<h3 id="2-2-配置实例"><a href="#2-2-配置实例" class="headerlink" title="2.2 配置实例"></a>2.2 配置实例</h3><p>按如图所示配置实例，然后点击“创建”：</p>
+<ul>
+<li>名称：anything</li>
+<li>区域：台湾/香港/澳门或其他，网传台湾的较快</li>
+<li>地区：随意选择</li>
+<li>机器类型：微型( 1 个共享 vcpu )，微型就够用了。</li>
+<li>启动磁盘：选择“Ubuntu 16.04 LTS”镜像。此处熟悉哪种系统，就选择哪种镜像。</li>
+<li>防火墙：选中“允许HTTP流量”和“允许HTTPS流量”</li>
+</ul>
+<img src="/2019/06/19/configure-vpn-proxy-server/vpn6.png">
+<img src="/2019/06/19/configure-vpn-proxy-server/vpn7.png">
+<h2 id="3-shadowsocks"><a href="#3-shadowsocks" class="headerlink" title="3. shadowsocks"></a>3. shadowsocks</h2><h3 id="3-1-安装-shadowsocks"><a href="#3-1-安装-shadowsocks" class="headerlink" title="3.1 安装 shadowsocks"></a>3.1 安装 shadowsocks</h3><p>以本教程安装的”ubuntu”系统为例<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install python-setuptools</span><br><span class="line">$ sudo easy_install pip</span><br><span class="line">$ sudo pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-启动-shadowsocks"><a href="#3-2-启动-shadowsocks" class="headerlink" title="3.2 启动 shadowsocks"></a>3.2 启动 shadowsocks</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ssserver -p 8388 -k *** -m rc4-md5 -d start</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li>端口：8388</li>
+<li>密码：***</li>
+<li>加密方式：rc4-md5</li>
+</ul>
+<h3 id="3-3-服务器自启动配置"><a href="#3-3-服务器自启动配置" class="headerlink" title="3.3 服务器自启动配置"></a>3.3 服务器自启动配置</h3><p>服务器有时会重启，配置重启后自动启动 ssserver 服务<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> ssserver</span><br><span class="line">/usr/<span class="built_in">local</span>/bin/ssserver</span><br><span class="line">$ sudo vim /etc/rc.local <span class="comment"># 添加以下命令：sudo ssserver -p 8388 -k naifanlee -m rc4-md5 -d start</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-配置防火墙规则"><a href="#5-配置防火墙规则" class="headerlink" title="5. 配置防火墙规则"></a>5. 配置防火墙规则</h2><p>添加防火墙规则，允许外部所有来源 IP（ Allow from any source ) 访问本地 tcp:8388 端口。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn8.png"><br><img src="/2019/06/19/configure-vpn-proxy-server/vpn9.png"></p>
+<h2 id="6-配置静态IP"><a href="#6-配置静态IP" class="headerlink" title="6. 配置静态IP"></a>6. 配置静态IP</h2><p>由于 Google VM 默认使用动态 IP，服务器重启后 IP 可能会发生改变。因此需要参照下图，将该台 VM 配置成静态 IP：<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn10.png"></p>
+<h2 id="7-本机安装shadowsocks客户端"><a href="#7-本机安装shadowsocks客户端" class="headerlink" title="7. 本机安装shadowsocks客户端"></a>7. 本机安装shadowsocks客户端</h2><p>本机按上述配置的IP地址、端口、密码、加密方式登陆即可科学上网了。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn11.png"></p>
 
       
     </div>
@@ -472,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/10/make-ubuntu-more-powerful/" rel="next" title="配置新安装的 Ubuntu 系统">
-                <i class="fa fa-chevron-left"></i> 配置新安装的 Ubuntu 系统
+              <a href="/2019/06/10/linux-command/" rel="next" title="Linux Command">
+                <i class="fa fa-chevron-left"></i> Linux Command
               </a>
             
           </div>
@@ -481,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/19/configure-vpn-proxy-server/" rel="prev" title="配置 VPN 代理 ( Google Cloud Platform )">
-                配置 VPN 代理 ( Google Cloud Platform ) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#apt"><span class="nav-text">apt</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-申请-Google-Cloud-免费试用"><span class="nav-text">1. 申请 Google Cloud 免费试用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-登录-cloud-google-com"><span class="nav-text">1.1 登录 cloud.google.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-注册"><span class="nav-text">1.2 注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建-Google-VM-实例"><span class="nav-text">2. 创建 Google VM 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-创建实例"><span class="nav-text">2.1 创建实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-配置实例"><span class="nav-text">2.2 配置实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-shadowsocks"><span class="nav-text">3. shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-安装-shadowsocks"><span class="nav-text">3.1 安装 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-启动-shadowsocks"><span class="nav-text">3.2 启动 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-服务器自启动配置"><span class="nav-text">3.3 服务器自启动配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置防火墙规则"><span class="nav-text">5. 配置防火墙规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置静态IP"><span class="nav-text">6. 配置静态IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-本机安装shadowsocks客户端"><span class="nav-text">7. 本机安装shadowsocks客户端</span></a></li></ol></div>
             
 
           </div>
