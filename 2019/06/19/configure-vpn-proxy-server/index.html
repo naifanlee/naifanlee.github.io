@@ -117,13 +117,13 @@
 
 
 
-<meta name="description" content="本文">
+<meta name="description" content="本文介绍如何捋 Google Cloud 的羊毛，自己配置VPN代理服务器。我们可以免费使用 Google Cloud Platform 300\$，一年的有效期，配置的VPN代理服务器月消费\$5。">
 <meta name="keywords" content="VPN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="配置 VPN 代理 ( Google Cloud Platform )">
 <meta property="og:url" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/index.html">
 <meta property="og:site_name" content="Y&amp;L">
-<meta property="og:description" content="本文">
+<meta property="og:description" content="本文介绍如何捋 Google Cloud 的羊毛，自己配置VPN代理服务器。我们可以免费使用 Google Cloud Platform 300\$，一年的有效期，配置的VPN代理服务器月消费\$5。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn2.png">
@@ -135,10 +135,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn9.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn10.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn11.png">
-<meta property="og:updated_time" content="2019-06-19T10:27:51.946Z">
+<meta property="og:updated_time" content="2019-06-19T10:35:29.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置 VPN 代理 ( Google Cloud Platform )">
-<meta name="twitter:description" content="本文">
+<meta name="twitter:description" content="本文介绍如何捋 Google Cloud 的羊毛，自己配置VPN代理服务器。我们可以免费使用 Google Cloud Platform 300\$，一年的有效期，配置的VPN代理服务器月消费\$5。">
 <meta name="twitter:image" content="http://yoursite.com/2019/06/19/configure-vpn-proxy-server/vpn1.png">
 
 
@@ -395,7 +395,7 @@
               
                 <span class="post-meta-item-text">Updated &#58;</span>
               
-              <time title="Updated" itemprop="dateModified" datetime="2019-06-19T18:27:51+08:00">
+              <time title="Updated" itemprop="dateModified" datetime="2019-06-19T18:35:29+08:00">
                 2019-06-19
               </time>
             
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">Words &asymp;</span>
                 
                 <span title="Words">
-                  501
+                  590
                 </span>
               
 
@@ -474,11 +474,10 @@
       
 
       
-        <p>本文</p>
-<a id="more"></a>
+        <p>本文介绍如何捋 Google Cloud 的羊毛，自己配置VPN代理服务器。我们可以免费使用 Google Cloud Platform 300\$，一年的有效期，配置的VPN代理服务器月消费\$5。<br><a id="more"></a><br>在配置自己的VPN代理服务器之前，你需要准备：</p>
 <ul>
-<li>可以临时登录国外网站的VPN代理</li>
-<li>Visa信用卡</li>
+<li>可以临时登录国外网站的VPN代理(捋羊毛用)</li>
+<li>Visa信用卡(需要支付$1)</li>
 </ul>
 <h2 id="1-申请-Google-Cloud-免费试用"><a href="#1-申请-Google-Cloud-免费试用" class="headerlink" title="1. 申请 Google Cloud 免费试用"></a>1. 申请 Google Cloud 免费试用</h2><h3 id="1-1-登录-cloud-google-com"><a href="#1-1-登录-cloud-google-com" class="headerlink" title="1.1 登录 cloud.google.com"></a>1.1 登录 <a href="https://cloud.google.com" target="_blank" rel="noopener">cloud.google.com</a></h3><p>(需要临时代理) 随便在网上找到一些免费试用的的代理即可，但必须在免费试用时间内完成下面全部操作。点击“免费试用”<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn1.png"></p>
 <h3 id="1-2-注册"><a href="#1-2-注册" class="headerlink" title="1.2 注册"></a>1.2 注册</h3><p>注册过程中的地址/邮编随便选择即可。最终可获得$300，一年有效期的免费试用。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn2.png"></p>
@@ -506,6 +505,9 @@
 <h2 id="5-配置防火墙规则"><a href="#5-配置防火墙规则" class="headerlink" title="5. 配置防火墙规则"></a>5. 配置防火墙规则</h2><p>添加防火墙规则，允许外部所有来源 IP（ Allow from any source ) 访问本地 tcp:8388 端口。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn8.png"><br><img src="/2019/06/19/configure-vpn-proxy-server/vpn9.png"></p>
 <h2 id="6-配置静态IP"><a href="#6-配置静态IP" class="headerlink" title="6. 配置静态IP"></a>6. 配置静态IP</h2><p>由于 Google VM 默认使用动态 IP，服务器重启后 IP 可能会发生改变。因此需要参照下图，将该台 VM 配置成静态 IP：<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn10.png"></p>
 <h2 id="7-本机安装shadowsocks客户端"><a href="#7-本机安装shadowsocks客户端" class="headerlink" title="7. 本机安装shadowsocks客户端"></a>7. 本机安装shadowsocks客户端</h2><p>本机按上述配置的IP地址、端口、密码、加密方式登陆即可科学上网了。<br><img src="/2019/06/19/configure-vpn-proxy-server/vpn11.png"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://github.com/kaiye/kaiye.github.com/issues/9" target="_blank" rel="noopener">https://github.com/kaiye/kaiye.github.com/issues/9</a></li>
+</ul>
 
       
     </div>
@@ -688,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-申请-Google-Cloud-免费试用"><span class="nav-text">1. 申请 Google Cloud 免费试用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-登录-cloud-google-com"><span class="nav-text">1.1 登录 cloud.google.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-注册"><span class="nav-text">1.2 注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建-Google-VM-实例"><span class="nav-text">2. 创建 Google VM 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-创建实例"><span class="nav-text">2.1 创建实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-配置实例"><span class="nav-text">2.2 配置实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-shadowsocks"><span class="nav-text">3. shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-安装-shadowsocks"><span class="nav-text">3.1 安装 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-启动-shadowsocks"><span class="nav-text">3.2 启动 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-服务器自启动配置"><span class="nav-text">3.3 服务器自启动配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置防火墙规则"><span class="nav-text">5. 配置防火墙规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置静态IP"><span class="nav-text">6. 配置静态IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-本机安装shadowsocks客户端"><span class="nav-text">7. 本机安装shadowsocks客户端</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-申请-Google-Cloud-免费试用"><span class="nav-text">1. 申请 Google Cloud 免费试用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-登录-cloud-google-com"><span class="nav-text">1.1 登录 cloud.google.com</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-注册"><span class="nav-text">1.2 注册</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建-Google-VM-实例"><span class="nav-text">2. 创建 Google VM 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-创建实例"><span class="nav-text">2.1 创建实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-配置实例"><span class="nav-text">2.2 配置实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-shadowsocks"><span class="nav-text">3. shadowsocks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-安装-shadowsocks"><span class="nav-text">3.1 安装 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-启动-shadowsocks"><span class="nav-text">3.2 启动 shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-服务器自启动配置"><span class="nav-text">3.3 服务器自启动配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置防火墙规则"><span class="nav-text">5. 配置防火墙规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置静态IP"><span class="nav-text">6. 配置静态IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-本机安装shadowsocks客户端"><span class="nav-text">7. 本机安装shadowsocks客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -722,7 +724,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.7k</span>
+    <span title="Site words total count">4.8k</span>
   
 </div>
 
